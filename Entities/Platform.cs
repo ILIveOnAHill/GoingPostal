@@ -4,21 +4,20 @@ using GoingPostal.Physics.ColliderShapes;
 
 namespace GoingPostal.Entities;
 
-public class Platform(bool isActive = false) : Entity(isActive)
+public class Platform(bool isActive = false) : Entity<PlatformBody>(isActive)
 {
     public new PlatformBody Body;
     public override void Update(float dt)
     {
         base.Update(dt);
     }
-    public override void SetCollider(bool isColliderTrigger)
+    public override void SetCollider()
     {
         Body ??= new();
         var s = new BoxShape(
                 SpriteRenderer.Texture.Width, 
                 SpriteRenderer.Texture.Height
                 );
-        Body.SetShape(s);
-        Console.WriteLine(Body.shape.Size.X);
+        Console.WriteLine(Body.Collider.Size.X);
     }
 }

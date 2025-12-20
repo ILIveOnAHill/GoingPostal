@@ -2,35 +2,38 @@ using System;
 using System.Collections.Generic;
 using GoingPostal.Entities;
 using GoingPostal.Physics.Body;
+using Microsoft.Xna.Framework;
 
 namespace GoingPostal.Physics
 {
     public class PhysicsEngine {
         
-        public static void Update(List<Entity<PhysicsBody>> entities, Dictionary<(int, int), List<Entity<PhysicsBody>>> cGrid)
+        public static void Update(List<EntityBase> entities, Dictionary<(int, int), List<EntityBase>> cGrid, float dt)
         {
             foreach (Entity<PhysicsBody> e in entities)
             {
                 if (!e.IsActive || !e.IsVisible) continue;
-                Step(e);
-                foreach (var coords in e.cGridPositions.Keys)
+                Step(e, dt);
+                foreach (var coords in e.GridPositions.Keys)
                 {
-                    List<Entity<PhysicsBody>> possibleContacts = cGrid[coords];
-                    if (possibleContacts.Count > 1 && e.cGridPositions[coords] == false)
+                    List<EntityBase> possibleContacts = cGrid[coords];
+                    if (possibleContacts.Count > 1 && e.GridPositions[coords] == false)
                     {
-                        foreach(Entity<PhysicsBody> contact in possibleContacts)
+                        foreach(EntityBase contact in possibleContacts)
                         {
-                            if (contact == e || contact.cGridPositions[coords] == true) continue;
+                            if (contact == e || contact.GridPositions[coords] == true) continue;
                             
                         }
-                        e.cGridPositions[coords] = true;
+                        e.GridPositions[coords] = true;
                     }
                 }
             }
         }
 
-        public static void Step<TBody>(Entity<TBody> aEntity) where TBody: PhysicsBody
+        public static void Step<TBody>(Entity<TBody> aEntity, float dt) where TBody: PhysicsBody
         {
+            Vector2 step = new();
+
             if (aEntity is Player p)
             {
                 PlayerBody Body = p.Body;
@@ -55,7 +58,7 @@ namespace GoingPostal.Physics
                 else Body.JumpBufferTimer -= dt;
 
 
-                if (p.moveDirectionX != 0) Body.Velocity.X += moveDirectionX * accel * dt;
+                if (p.MoveDirectionX != 0) Body.Velocity.X += p.MoveDirectionX * accel * dt;
                 else Body.Velocity.X = ApproachZero(Body.Velocity.X, deaccel * dt);
 
                 if (Body.CoyoteTimer > 0 && Body.JumpBufferTimer > 0)
@@ -65,15 +68,17 @@ namespace GoingPostal.Physics
                     Body.OnGround = false;
                 }
 
-                if(WantsToStopJumpEarly && Body.Velocity.Y < 0)
+                if(p.WantsToStopJumpEarly && Body.Velocity.Y < 0)
                 {
                     Body.Velocity.Y *= 0.6f;
                 }
 
                 Body.Velocity.Y = Math.Min(Body.MaxFallSpeed, Body.Velocity.Y + (Body.Gravity * dt));
 
-                Transform.Position += Body.Velocity * dt;
+                step = Body.Velocity * dt;
             }
+
+            aEntity.Transform.Position += step;
         }
 
         public static float ApproachZero(float value, float amount)

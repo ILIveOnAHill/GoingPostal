@@ -1,12 +1,16 @@
 
+using System.Numerics;
 using GoingPostal.Physics.ColliderShapes;
 
-namespace GoingPostal.Physics.Body
+namespace GoingPostal.Physics.Body;
+public abstract class PhysicsBody
 {
-    public abstract class PhysicsBody()
+    public Vector2 Velocity;
+
+    public ColliderShape Collider { get; private set; }
+
+    public void SetCollider(ColliderShape collider)
     {
-        public abstract ColliderShape Shape {get;}
-
+        Collider = collider;
     }
-
 }

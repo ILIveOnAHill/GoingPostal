@@ -1,12 +1,8 @@
 
-using System.Numerics;
-using GoingPostal.Physics.ColliderShapes;
-
 namespace GoingPostal.Physics.Body;
 
 public class PlayerBody() : PhysicsBody
 {
-        public Vector2 Velocitiy;
         public bool OnGround;
         public float MaxRunSpeed = 180f;
         public float MaxFallSpeed = 900f;
@@ -24,6 +20,4 @@ public class PlayerBody() : PhysicsBody
 
         public float CoyoteTimer;
         public float JumpBufferTimer;
-
-        public override ColliderShape shape => {s};
 }

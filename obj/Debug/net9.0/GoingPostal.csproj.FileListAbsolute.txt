@@ -36,3 +36,7 @@ C:\Users\hribe\Documents\FRI-faks\2025-26\TiNR\game\GoingPostal\bin\Debug\net9.0
 C:\Users\hribe\Documents\FRI-faks\2025-26\TiNR\game\GoingPostal\bin\Debug\net9.0\Content\images\enemy-1.xnb
 C:\Users\hribe\Documents\FRI-faks\2025-26\TiNR\game\GoingPostal\bin\Debug\net9.0\Content\images\brick-platfrom-variant1.xnb
 C:\Users\hribe\Documents\FRI-faks\2025-26\TiNR\game\GoingPostal\bin\Debug\net9.0\Content\images\grass-platfrom-variant2.xnb
+c:\Users\hribe\Documents\faks\2025-26\TiNR\Game\GoingPostal\obj\Debug\net9.0\mgcb.tool.restore
+c:\Users\hribe\Documents\faks\2025-26\TiNR\Game\GoingPostal\obj\Debug\net9.0\GoingPostal.dll
+c:\Users\hribe\Documents\faks\2025-26\TiNR\Game\GoingPostal\obj\Debug\net9.0\refint\GoingPostal.dll
+c:\Users\hribe\Documents\faks\2025-26\TiNR\Game\GoingPostal\obj\Debug\net9.0\GoingPostal.pdb

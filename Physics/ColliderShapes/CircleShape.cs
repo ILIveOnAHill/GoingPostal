@@ -3,13 +3,9 @@ using Microsoft.Xna.Framework;
 namespace GoingPostal.Physics.ColliderShapes;
 
 
-public class CircleShape(float r) : ColliderShape
+public class CircleShape(float radius) : ColliderShape
 {
-    public override Vector2 Size { get => new(2*r,2*r); protected set => SetSize(2*r,2*r); }
+    public float Radius { get; } = radius;
 
-    private static Vector2 SetSize(float w, float h)
-    {
-        return new(w, h);
-    }
-
+    public override Vector2 Size => new(Radius * 2, Radius * 2);
 }

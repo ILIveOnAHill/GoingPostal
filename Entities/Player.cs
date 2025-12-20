@@ -3,42 +3,43 @@ using GoingPostal.Core.Input;
 using GoingPostal.Physics.ColliderShapes;
 using GoingPostal.Physics.Body;
 using System;
+using System.Net.Http.Headers;
 
 namespace GoingPostal.Entities
 {
     public class Player(InputManager input) : Entity<PlayerBody>(true)
     {
         private readonly InputManager _input = input;
-        public int moveDirectionX;
-        bool WantsToJump;
-        bool WantsToStopJumpEarly;
+        public int MoveDirectionX {get;set;}
+        public bool WantsToJump {get;set;}
+        public bool WantsToStopJumpEarly {get;set;}
 
         public override void Update(float dt)
         {
-            moveDirectionX = 0;
+            MoveDirectionX = 0;
 
             var k = _input.Keyboard;
 
-            if (k.IsDown(Keys.A)) moveDirectionX -= 1;
-            if (k.IsDown(Keys.D)) moveDirectionX += 1;
+            if (k.IsDown(Keys.A)) MoveDirectionX -= 1;
+            if (k.IsDown(Keys.D)) MoveDirectionX += 1;
 
             WantsToJump = k.IsDown(Keys.Space);
             WantsToStopJumpEarly = k.IsUp(Keys.Space);
 
         }
-        public override void SetCollider(bool isColliderTrigger)
+        public override void SetCollider()
         {
-            Body ??= new PlayerBody();
-
             if (SpriteRenderer == null)
                 throw new InvalidOperationException("SpriteRenderer is null");
 
             if (SpriteRenderer.Texture == null)
                 throw new InvalidOperationException("Texture is null (call after LoadContent)");
 
-            Body.shape = s;
+            Body ??= new PlayerBody();
 
-            Console.WriteLine(Body.shape.Size.X);
+            Body.SetCollider(new BoxShape(SpriteRenderer.Texture.Width, SpriteRenderer.Texture.Height));
+
+            Console.WriteLine(Body.Collider.Size.X);
         }
     }
 }

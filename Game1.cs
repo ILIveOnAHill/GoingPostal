@@ -16,8 +16,7 @@ public class Game1 : Base
 
     private InputManager _input;
     // private PhysicsEngine _pe;
-    private List<Entity> _enities;
-
+    private List<EntityBase> _enities;
     private World _world;
     public Game1() : base("GoingPostal", 1280, 720, false)
     {
@@ -33,13 +32,13 @@ public class Game1 : Base
         _world = new(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
         Player player = new(_input);
-        player.SetSprite(Content.Load<Texture2D>("images/mailman-temp"), false);
+        player.SetSprite(Content.Load<Texture2D>("images/mailman-temp"));
         player.Transform.Position = new(700, 0);
         player.Transform.Scale = new(0.5f, 0.5f);
         _enities.Add(player);
 
         Platform floor = new();
-        floor.SetSprite(Content.Load<Texture2D>("images/brick-platfrom-variant1"), false);
+        floor.SetSprite(Content.Load<Texture2D>("images/brick-platfrom-variant1"));
         floor.Transform.Position = new(
             GraphicsDevice.Viewport.Width / 2,
             GraphicsDevice.Viewport.Height
@@ -61,10 +60,13 @@ public class Game1 : Base
     {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
+        
+        float dt = (float) gameTime.ElapsedGameTime.TotalSeconds;
+
         _input.Update();
         _world.BuildCollisionGrid(_enities);
-        foreach(var e in _enities) e.Update((float) gameTime.ElapsedGameTime.TotalSeconds);
-        PhysicsEngine.Update(_enities, _world.cGrid);
+        foreach(var e in _enities) e.Update(dt);
+        PhysicsEngine.Update(_enities, _world.cGrid, dt);
 
         base.Update(gameTime);
     }

@@ -300,21 +300,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hribe\\Documents\\FRI-faks\\2025-26\\TiNR\\game\\GoingPostal\\GoingPostal.csproj",
+      "projectUniqueName": "C:\\Users\\hribe\\Documents\\faks\\2025-26\\TiNR\\Game\\GoingPostal\\GoingPostal.csproj",
       "projectName": "GoingPostal",
-      "projectPath": "C:\\Users\\hribe\\Documents\\FRI-faks\\2025-26\\TiNR\\game\\GoingPostal\\GoingPostal.csproj",
+      "projectPath": "C:\\Users\\hribe\\Documents\\faks\\2025-26\\TiNR\\Game\\GoingPostal\\GoingPostal.csproj",
       "packagesPath": "C:\\Users\\hribe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hribe\\Documents\\FRI-faks\\2025-26\\TiNR\\game\\GoingPostal\\obj\\",
+      "outputPath": "C:\\Users\\hribe\\Documents\\faks\\2025-26\\TiNR\\Game\\GoingPostal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hribe\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\hribe\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -364,7 +362,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

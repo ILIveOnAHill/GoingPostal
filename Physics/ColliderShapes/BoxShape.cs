@@ -4,13 +4,10 @@ using Microsoft.Xna.Framework;
 
 namespace GoingPostal.Physics.ColliderShapes;
 
-public class BoxShape(float w, float h) : ColliderShape
+public class BoxShape(float width, float height) : ColliderShape
 {
-    public override Vector2 Size { get => new(w,h); protected set => SetSize(w, h); }
+    public float Width { get; } = width;
+    public float Height { get; } = height;
 
-    private static Vector2 SetSize(float w, float h)
-    {
-        return new(w, h);
-    }
-
+    public override Vector2 Size => new(Width, Height);
 }
