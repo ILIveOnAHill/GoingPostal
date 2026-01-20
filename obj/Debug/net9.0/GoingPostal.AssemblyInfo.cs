@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GoingPostal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a5bcbb0a87ab169d9dde43b093cb50e2185431f9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c3be08b2004abd79a8195aaaca83372517ff9ad")]
 [assembly: System.Reflection.AssemblyProductAttribute("GoingPostal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GoingPostal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

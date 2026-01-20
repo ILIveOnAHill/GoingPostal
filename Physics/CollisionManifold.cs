@@ -1,4 +1,5 @@
-using System.Numerics;
+
+using Microsoft.Xna.Framework;
 
 namespace GoingPostal.Physics;
 public struct CollisionManifold(Vector2 normal, Vector2 depth)

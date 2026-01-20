@@ -4,12 +4,26 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/hribe/Documents/FRI-faks/2025-26/TiNR/game/GoingPostal/Content/images/brick-platfrom-variant1.png</File>
-    <File>C:/Users/hribe/Documents/FRI-faks/2025-26/TiNR/game/GoingPostal/Content/images/enemy-1.png</File>
-    <File>C:/Users/hribe/Documents/FRI-faks/2025-26/TiNR/game/GoingPostal/Content/images/grass-platfrom-variant2.png</File>
-    <File>C:/Users/hribe/Documents/FRI-faks/2025-26/TiNR/game/GoingPostal/Content/images/mailman-temp.png</File>
+    <File>C:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/fonts/comic-sans-ms.spritefont</File>
+    <File>C:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/bird.png</File>
+    <File>C:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/bird2.png</File>
+    <File>C:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/brick-platfrom-variant1.png</File>
+    <File>C:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/Buttons.png</File>
+    <File>C:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/enemy-1.png</File>
+    <File>C:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/grass-platfrom-variant2.png</File>
+    <File>C:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/hover_btn.png</File>
+    <File>C:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/mailman-temp.png</File>
+    <File>C:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/normal_btn.png</File>
+    <File>C:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/title.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

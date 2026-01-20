@@ -1,38 +1,91 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
+
 using GoingPostal.Entities;
-using GoingPostal.Physics.Body;
+using Microsoft.Xna.Framework;
 
 namespace GoingPostal;
 
-public class World(float w, float h, int cSize = 64)
+public class World(int w, int h)
 {
-    public readonly Dictionary<(int, int), List<EntityBase>> cGrid; // Spatial hash for storing objects
-    private readonly int cellSize = cSize;
-    private Vector2 worldSize = new(w, h);
+    public Vector2 Size {get;} = new(w, h);
+    public List<EntityBase> Entities = [];
+    public Dictionary<int, Level> Levels {get;set;} = [];
+    public Dictionary<(int, int), List<EntityBase>> SpatialHash {get;set;} // Spatial hash for Broad phase collision
+ 
 
-    public void BuildCollisionGrid(List<EntityBase> entities)
+
+    public void BuildCollisionGrid(int cellSize = 64)
     {
-        foreach(Entity<PhysicsBody> e in entities.Cast<Entity<PhysicsBody>>())
+        SpatialHash = [];
+        foreach(EntityBase e in Entities)
         {            
             e.GridPositions = [];
-            Console.WriteLine(e.Body.Collider.Size.X);
-            int cellEntityStartX = (int) Math.Floor(e.Transform.Position.X / this.cellSize);
-            int cellEntityEndX = (int) Math.Floor((e.Transform.Position.X + e.Body.Collider.Size.X) / this.cellSize);
-            int cellEntityStartY = (int) Math.Floor(e.Transform.Position.Y / this.cellSize);
-            int cellEntityEndY = (int) Math.Floor((e.Transform.Position.Y + e.Body.Collider.Size.Y) / this.cellSize);
+
+            var entitySize = e.BodyBase.Collider.Size / 2f;
+
+            int cellEntityStartX = (int) MathF.Floor((e.Transform.Position.X - entitySize.X) / cellSize);
+            int cellEntityEndX = (int) MathF.Floor((e.Transform.Position.X + entitySize.X) / cellSize);
+            int cellEntityStartY = (int) MathF.Floor((e.Transform.Position.Y - entitySize.Y) / cellSize);
+            int cellEntityEndY = (int) MathF.Floor((e.Transform.Position.Y + entitySize.Y) / cellSize);
 
             for(int i = cellEntityStartX; i <= cellEntityEndX; i++)
             {
                 for(int j = cellEntityStartY; j <= cellEntityEndY; j++)
                 {
-                    cGrid[(i, j)].Add(e);
-                    e.GridPositions[(i, j)] = false;
+                    if (!SpatialHash.TryGetValue((i, j), out List<EntityBase> l))
+                    {
+                        l = [];
+                        SpatialHash.Add((i, j), l);  
+                    } 
+                    l.Add(e);
+                    e.GridPositions.Add((i, j), false);
                 }
             }
 
         }
+    }
+
+    public Level GetLevel(int lid)
+    {
+        if(!Levels.TryGetValue(lid, out Level v))
+        {
+            v = new(lid);
+            Levels.Add(lid, v);
+        }
+
+        return v;
+    }
+
+    public List<Platform> GetPlatforms(int lid)
+    {
+        var level = GetLevel(lid);
+
+        List<Platform> platforms = []; 
+
+        foreach (EntityBase e in level.Entities)
+        {
+            if (e is Platform p) platforms.Add(p);
+        }
+
+        return platforms;
+    }
+
+    public void Init()
+    {
+        var t = new Transform(new(700, 150), 0f, new(0.5f, 0.5f));
+        Entities.Add(EntityFactory.CreatePlayer(t));
+        t = new Transform(new(Size.X / 2, Size.Y - 50), 0f, new(10f, 1f));
+        Entities.Add(EntityFactory.CreatePlatform(t));
+        t = new Transform(new(700, 300));
+        Entities.Add(EntityFactory.CreatePlatform(t));
+        t = new Transform(new(1100, 500));
+        Entities.Add(EntityFactory.CreatePlatform(t));
+        t = new Transform(new(500, 1200));
+        Entities.Add(EntityFactory.CreatePlatform(t));
+        t = new Transform(new(700, 1500));
+        Entities.Add(EntityFactory.CreatePlatform(t));
+        t = new Transform(new(900, 1800));
+        Entities.Add(EntityFactory.CreatePlatform(t));
     }
 }

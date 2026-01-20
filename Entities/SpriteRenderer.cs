@@ -10,11 +10,12 @@ namespace GoingPostal.Entities
         public Vector2 Origin = new(texture.Width / 2f, texture.Height / 2f);
         public float Layer = 0.5f;
 
-        public void Draw(SpriteBatch spriteBatch, Transform transform)
+        public void Draw(SpriteBatch spriteBatch, Transform transform, float ViewHeight)
         {
+            Vector2 viewPosition = new(transform.Position.X, transform.Position.Y % ViewHeight);
             spriteBatch.Draw(
                 Texture,
-                transform.Position,
+                viewPosition,
                 null,
                 Color,
                 transform.Rotation,

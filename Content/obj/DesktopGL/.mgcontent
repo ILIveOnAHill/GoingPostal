@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>c:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/fonts/comic-sans-ms.spritefont</File>
+    <File>c:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/bird.png</File>
+    <File>c:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/bird2.png</File>
+    <File>c:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/brick-platfrom-variant1.png</File>
+    <File>c:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/enemy-1.png</File>
+    <File>c:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/grass-platfrom-variant2.png</File>
+    <File>c:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/mailman-temp.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

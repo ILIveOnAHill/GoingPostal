@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/hribe/Documents/FRI-faks/2025-26/TiNR/game/GoingPostal/Content/images/enemy-1.png</SourceFile>
-  <SourceTime>2025-11-07T23:13:15.5480081+01:00</SourceTime>
-  <DestFile>C:/Users/hribe/Documents/FRI-faks/2025-26/TiNR/game/GoingPostal/Content/bin/DesktopGL/Content/images/enemy-1.xnb</DestFile>
-  <DestTime>2025-11-08T01:14:42.8455639+01:00</DestTime>
+  <SourceFile>C:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/images/enemy-1.png</SourceFile>
+  <SourceTime>2025-12-20T12:59:43.1172204+01:00</SourceTime>
+  <DestFile>C:/Users/hribe/Documents/faks/2025-26/TiNR/Game/GoingPostal/Content/bin/DesktopGL/Content/images/enemy-1.xnb</DestFile>
+  <DestTime>2025-12-20T17:21:47.564168+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2025-10-20T16:25:32+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

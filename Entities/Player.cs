@@ -3,7 +3,6 @@ using GoingPostal.Core.Input;
 using GoingPostal.Physics.ColliderShapes;
 using GoingPostal.Physics.Body;
 using System;
-using System.Net.Http.Headers;
 
 namespace GoingPostal.Entities
 {
@@ -13,18 +12,23 @@ namespace GoingPostal.Entities
         public int MoveDirectionX {get;set;}
         public bool WantsToJump {get;set;}
         public bool WantsToStopJumpEarly {get;set;}
+        public float JumpCharge = 0f;
 
-        public override void Update(float dt)
+        public override void Update(float dt, World world = null)
         {
-            MoveDirectionX = 0;
 
-            var k = _input.Keyboard;
+            _input.Update();
+            
+            if (Body.OnGround)
+            {
+                var k = _input.Keyboard;
+                MoveDirectionX = 0;
 
-            if (k.IsDown(Keys.A)) MoveDirectionX -= 1;
-            if (k.IsDown(Keys.D)) MoveDirectionX += 1;
+                if (k.IsDown(Keys.Left)) MoveDirectionX -= 1;
+                if (k.IsDown(Keys.Right)) MoveDirectionX += 1;
 
-            WantsToJump = k.IsDown(Keys.Space);
-            WantsToStopJumpEarly = k.IsUp(Keys.Space);
+                WantsToJump = k.IsDown(Keys.Space);
+            }
 
         }
         public override void SetCollider()
@@ -37,9 +41,13 @@ namespace GoingPostal.Entities
 
             Body ??= new PlayerBody();
 
-            Body.SetCollider(new BoxShape(SpriteRenderer.Texture.Width, SpriteRenderer.Texture.Height));
-
-            Console.WriteLine(Body.Collider.Size.X);
+            Body.SetCollider(
+                new AABBShape(
+                    SpriteRenderer.Texture.Width, 
+                    SpriteRenderer.Texture.Height,
+                    Transform
+                )
+            );
         }
     }
 }

@@ -1,13 +1,16 @@
+using System;
+using System.Collections.Generic;
+using GoingPostal.Entities;
 
 namespace GoingPostal;
 
-public class Level()
+public class Level(int id)
 {
+    public int RoomId {get;} = id;
 
-    public void Init()
-    {
-        
-    }
+
+    public List<EntityBase> Entities {get;} = [];
+
 
     
 }
